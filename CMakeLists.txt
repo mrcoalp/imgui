@@ -15,3 +15,13 @@ target_include_directories(imgui PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+
+install(TARGETS imgui DESTINATION lib)
+install(FILES
+        imconfig.h
+        imgui_internal.h
+        imgui.h
+        imstb_rectpack.h
+        imstb_textedit.h
+        imstb_truetype.h
+        DESTINATION include)
