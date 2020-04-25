@@ -1,10 +1,18 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(imgui VERSION 0.1.0)
 
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
+
 include(CTest)
 enable_testing()
 
-add_library(imgui SHARED
+if (BUILD_SHARED_LIBS)
+    set(LIB_TYPE SHARED)
+else ()
+    set(LIB_TYPE STATIC)
+endif ()
+
+add_library(imgui ${LIB_TYPE}
         imgui.cpp
         imgui_demo.cpp
         imgui_draw.cpp
